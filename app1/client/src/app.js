@@ -1,11 +1,8 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import router from './router';
 
 const el = document.getElementById('app');
+const app = createApp({});
 
-const App = new Vue({
-  el,
-  router
-});
-
-export default App;
+app.use(router)
+   .mount(el);
