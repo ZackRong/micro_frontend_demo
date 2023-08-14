@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='about'>
     这是应用1的关于页
   </div>
 </template>
@@ -9,3 +9,9 @@
     name: 'About'
   }
 </script>
+<style scoped lang="less">
+  .about {
+    color: red;
+    font-size: 14px;
+  }
+</style>

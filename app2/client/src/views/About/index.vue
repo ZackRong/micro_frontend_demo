@@ -1,17 +1,16 @@
 <template>
-  <div class='home'>
-    这是应用1的首页
+  <div class="about">
+    这是App2关于页
   </div>
 </template>
-
 <script>
   export default {
-    name: 'Home'
+    name: 'About'
   }
 </script>
 <style scoped lang="less">
-  .home {
-    color: red;
-    font-size: 14px;
+  .about {
+    color: blue;
+    font-size: 18px;
   }
 </style>
