@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    这是App2关于页
+    这是应用2关于页
   </div>
 </template>
 <script>

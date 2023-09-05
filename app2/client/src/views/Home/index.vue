@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    这是App2首页
+    这是应用2首页
   </div>
 </template>
 <script>

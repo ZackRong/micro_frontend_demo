@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../../static'),
-    filename: 'js/[name][hash:8].bundle.js',
+    filename: 'js/[name].bundle.js',
     chunkFilename: 'js/[name][hash].chunk.js'
   },
   module: {
