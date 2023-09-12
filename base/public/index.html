@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>基座应用</title>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.8.4/system.js"></script> -->
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "app1": "http://127.0.0.1:3000/js/app.js",
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.min.js"></script>
 </head>
 <body>
   <div id='base'></div>

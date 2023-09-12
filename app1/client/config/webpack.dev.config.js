@@ -11,7 +11,9 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../../static'),
     filename: 'js/[name].bundle.js',
-    chunkFilename: 'js/[name][hash].chunk.js'
+    chunkFilename: 'js/[name][hash].chunk.js',
+    libraryTarget: 'umd',
+    library: 'app1'
   },
   module: {
     rules: [
@@ -53,6 +55,9 @@ module.exports = {
     writeToDisk: true,
     // 访问根路径外其他路径时，转发到根路径。其实是指镜头资源转发到这里(html、js...)
     historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
     // 内存打包后，生成的html、静态资源所在路径
     // publicPath: '/test2/'
   },
