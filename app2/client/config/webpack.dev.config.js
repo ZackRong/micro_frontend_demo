@@ -11,7 +11,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../../static'),
     filename: 'js/[name].bundle.js',
-    chunkFilename: 'js/[name][hash].chunk.js'
+    chunkFilename: 'js/[name][hash].chunk.js',
+    libraryTarget: 'umd',
+    library: 'app2',
+    jsonpFunction: `webpackJsonp_app2`,
   },
   module: {
     rules: [
@@ -48,6 +51,9 @@ module.exports = {
     writeToDisk: true,
     // 访问根路径外其他路径时，转发到根路径。其实是指静态资源转发到这里(html、js...)
     historyApiFallback: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
   },
   plugins: [
     new VueLoaderPlugin(),
