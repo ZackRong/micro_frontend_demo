@@ -1,34 +1,38 @@
-// import { createApp } from 'vue';
-// import App from './app.vue';
-// import router from './router';
+import './public-path';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import App from './app.vue';
+import routes from './routes';
 
-// createApp(App)
-//    .use(router)
-//    .mount('#app');
-//app1.js
-let domEl;
-export function bootstrap(props) {
-    return Promise
-        .resolve()
-        .then(() => {
-            domEl = document.createElement('div');
-            domEl.id = 'app1';
-            document.body.appendChild(domEl);
-        });
-}
-export function mount(props) {
-    return Promise
-        .resolve()
-        .then(() => {
-            // 在这里通常使用框架将ui组件挂载到dom。请参阅https://single-spa.js.org/docs/ecosystem.html。
-            domEl.textContent = 'App 1 is mounted!'
-        });
-}
-export function unmount(props) {
-    return Promise
-        .resolve()
-        .then(() => {
-            // 在这里通常是通知框架把ui组件从dom中卸载。参见https://single-spa.js.org/docs/ecosystem.html
-            domEl.textContent = '';
-        })
-}
+let router = null;
+let instance = null;
+function render(props = {}) {
+    const { container } = props;
+    const router = createRouter({
+        history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/app1/' : '/'),
+        routes
+    });
+
+    instance = createApp(App);
+    instance.use(router);
+    instance.mount(container ? container.querySelector('#app') : '#app');
+  }
+  
+  // 独立运行时
+  if (!window.__POWERED_BY_QIANKUN__) {
+    render();
+  }
+  
+  export async function bootstrap() {
+    console.log('[vue] vue app1 bootstraped');
+  }
+  export async function mount(props) {
+    console.log('[vue] props from main framework', props);
+    render(props);
+  }
+  export async function unmount() {
+    // instance.$destroy();
+    // instance.$el.innerHTML = '';
+    instance = null;
+    router = null;
+  }

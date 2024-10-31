@@ -13,7 +13,9 @@ module.exports = {
     filename: 'js/[name].bundle.js',
     chunkFilename: 'js/[name][hash].chunk.js',
     libraryTarget: 'umd',
-    library: 'app1'
+    library: 'app1',
+    jsonpFunction: `webpackJsonp_app1`,
+    // publicPath: `/app1/`,
   },
   module: {
     rules: [
